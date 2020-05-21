@@ -41,6 +41,12 @@ def NOR(x1, x2):
     else:
         return 1
 
+def XOR(x1, x2):
+    s1 = NAND(x1, x2)
+    s2 = OR(x1, x2)
+    y = AND(s1, s2)
+    return y
+
 def tbl(logic):
     x1 = [0, 1]
     x2 = [0, 1]
@@ -54,11 +60,15 @@ def tbl(logic):
                 print(f'{a} NAND {b} = ' + '{}'.format(logic(a, b)))
             elif logic == NOR:
                 print(f'{a} NOR {b} = ' + '{}'.format(logic(a, b)))
+            elif logic == XOR:
+                print(f'{a} XOR {b} = ' + '{}'.format(logic(a,b))) 
 def main():
     tbl(AND)
     tbl(OR)
     tbl(NAND)
     tbl(NOR)
+    tbl(XOR)
+
 
 if __name__ == "__main__":
     main()
